@@ -1,0 +1,36 @@
+﻿
+
+@if (TempData["Success"] != null)
+{
+    <div id="toast-container" class="toast-container toast-bottom-right alert notification">
+        <div class="toast toast-success" aria-live="polite">
+            <div class="toast-title">İşlem Başarılı!</div>
+            <div class="toast-message">@TempData["Success"]</div>
+        </div>
+    </div>
+
+}
+
+@if (TempData["Error"] != null)
+{
+    <div id="toast-container" class="toast-container toast-bottom-right alert notification">
+        <div class="toast bg-danger" aria-live="polite">
+            <div class="toast-title">İşlem Başarısız!</div>
+            <div class="toast-message">@TempData["Error"]</div>
+        </div>
+    </div>
+}
+
+@if (TempData["Warning"] != null)
+{
+    <div id="toast-container" class="toast-container toast-bottom-right alert notification">
+        <div class="toast toast-warning" aria-live="polite">
+            <div class="toast-title">İşlem Başarısız!</div>
+            <div class="toast-message">@TempData["Warning"]</div>
+        </div>
+    </div>
+}
+
+
+
+

@@ -1,0 +1,185 @@
+﻿@model HesaplamalarVM
+
+<div class="modal fade" data-toggle="modal" role="dialog" area-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><strong>Hesaplama Ekle</strong></h5>
+                @*                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Vazgeç">
+                <span aria-hidden="true">×</span>
+                </button>*@
+            </div>
+            <div class="modal-body">
+                <form asp-action="Ekle" method="post" enctype="multipart/form-data">
+                    <!--Cari bilgileri-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>Proje No</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="ProjeNo" id="inputProjeNo" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="ProjeNo" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>Güç</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="Guc" id="inputGuc" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="Guc" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>AG Gerilim</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="AGgerilim" id="inputAgGerilim" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="AGgerilim" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>YG Gerilim</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="YGgerilim" id="inputYgGerilim" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="YGgerilim" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br /><hr />
+                            <div class="col-md-6 mt-2">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>Kazan Uzunluk</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="KazanUzunluk" id="inputUzunluk" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="KazanUzunluk" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>Kazan Genişlik</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="KazanGenislik" id="inputGenislik" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="KazanGenislik" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-group has-feedback">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>Kazan Yükseklik</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input asp-for="KazanYukseklik" id="inputYukseklik" class="form-control form-control-sm" type="text">
+                                            <span asp-validation-for="KazanYukseklik" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <div class="form-group has-feedback">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Maliyet</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input asp-for="Maliyet" id="inputMaliyet" class="form-control form-control-sm" type="text">
+                                        <span asp-validation-for="Maliyet" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="button" class="btn btn-block btn-primary mt-3" style="float: right;"
+                               value="Hesapla" onclick="hesapla();">
+
+                    </div><hr />
+                    <!--Diğer bilgiler-->
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <a href="/Hesaplama/Liste" class="btn btn-primary btn-sm"><i class="fa fa-backward"></i> Listeye Dön</a>
+                            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function hesapla() {
+
+        var Guc
+        var AgGerilim
+        var YgGerilim
+        var Genislik
+        var Uzunluk
+        var Yukseklik
+        var Maliyet
+
+        Guc = document.getElementById("inputGuc").value;
+        AgGerilim = document.getElementById("inputAgGerilim").value;
+        YgGerilim = document.getElementById("inputYgGerilim").value;
+        Genislik = document.getElementById("inputGenislik").value;
+        Uzunluk = document.getElementById("inputUzunluk").value;
+        Yukseklik = document.getElementById("inputYukseklik").value;
+        Maliyet = document.getElementById("inputMaliyet").value;
+
+
+        var KazanGenislik = (Guc * AgGerilim) / 500;
+        document.getElementById("inputGenislik").value = (KazanGenislik).toFixed(2).toString().replace('.', ',');
+
+        var KazanUzunluk = (Guc * YgGerilim) / 10000;
+        document.getElementById("inputUzunluk").value = (KazanUzunluk).toFixed(2).toString().replace('.', ',');
+
+        var KazanYukseklik = ((KazanGenislik + KazanUzunluk) / AgGerilim) * 50;
+        document.getElementById("inputYukseklik").value = (KazanYukseklik).toFixed(2).toString().replace('.', ',');
+
+        var Maliyet = ((KazanGenislik * 1.5) + (KazanUzunluk * 1.25) + (KazanYukseklik));
+        document.getElementById("inputMaliyet").value = (Maliyet).toFixed(2).toString().replace('.', ',');
+
+
+
+        var inputGucDeger = Guc.toString().replace('.', ',');
+        var inputAgGerilimDeger = AgGerilim.toString().replace('.', ',');
+        var inputYgGerilimDeger = YgGerilim.toString().replace('.', ',');
+
+        document.getElementById("inputGuc").value = inputGucDeger;
+        document.getElementById("inputAgGerilim").value = inputAgGerilimDeger;
+        document.getElementById("inputYgGerilim").value = inputYgGerilimDeger;
+
+
+    }
+</script>
